@@ -45,7 +45,8 @@ public class ClienteController {
 	
 	@PostMapping("/buscar")
 	public Page<DadosDetalhamentoCliente> buscarPorParametro(@RequestBody @Valid DadosPesquisa dados, Pageable pageable) {
-	    if (dados.parametro().matches("^\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}$")) {
+	    System.out.println(dados.parametro());
+		if (dados.parametro().matches("^\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}$")) {
 	        DadosDetalhamentoCliente cliente = service.buscarPorCpf(dados.parametro());
 	        return new PageImpl<>(List.of(cliente)); 
 	    }
