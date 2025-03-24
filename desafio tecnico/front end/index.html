@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Clientes</title>
+    <link rel="stylesheet" href="css/index/header.css">
+    <link rel="stylesheet" href="css/index/index.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="novo-cliente.html">Novo cliente</a></li>
+                <li><a href="novo-contato.html">Novo contato</a></li>
+            </ul>
+            <form id="search-form" class="search-form">
+                <input type="text" placeholder="Pesquisar..." name="parametro" id="parametro">
+                <button type="submit">Pesquisar</button>
+            </form>
+        </nav>
+    </header>
+
+    <div id="results-container"></div>
+</body>
+
+<script src="js/home/home.js"></script>
+<script src="js/home/pesquisa.js"></script>
+
+</html>

@@ -1,0 +1,49 @@
+-- Crie o banco de dados
+CREATE DATABASE desafio
+
+--Execute o projeto e deixe as tabelas serem criadas pelas migrations
+
+-- Populando a tabela clientes
+INSERT INTO clientes (nome, cpf, data_nascimento, endereco) VALUES
+('Ana Paula Silva', '123.456.789-00', '1990-05-14', 'Rua das Flores, 123 - São Paulo, SP'),
+('Carlos Eduardo Pereira', '987.654.321-00', '1985-10-22', 'Avenida Brasil, 456 - Rio de Janeiro, RJ'),
+('Mariana Oliveira Santos', '456.789.123-00', '1992-08-30', 'Rua das Palmeiras, 789 - Belo Horizonte, MG'),
+('Lucas Fernandes Costa', '321.654.987-00', '1988-12-15', 'Rua Amazonas, 321 - Curitiba, PR'),
+('Fernanda Rocha Lima', '654.321.987-00', '1995-03-25', 'Rua Bahia, 654 - Salvador, BA'),
+('Rafael Martins Souza', '159.753.486-00', '1991-07-19', 'Rua Ceará, 852 - Recife, PE'),
+('Patrícia Gomes Almeida', '753.159.486-00', '1987-11-05', 'Rua Pernambuco, 963 - Porto Alegre, RS'),
+('Thiago Ribeiro Nunes', '852.456.123-00', '1993-09-27', 'Avenida Paulista, 1000 - São Paulo, SP'),
+('Juliana Castro Menezes', '741.852.963-00', '1989-06-10', 'Rua XV de Novembro, 200 - Florianópolis, SC'),
+('Bruno Lima Araújo', '369.258.147-00', '1996-04-08', 'Rua Goiás, 555 - Fortaleza, CE');
+
+-- Populando a tabela contatos com TELEFONE e EMAIL respeitando a regex
+INSERT INTO contatos (tipo, valor, observacao, cliente_id) VALUES
+('TELEFONE', '(11) 91234-5678', 'Contato principal', 1),
+('EMAIL', 'ana.silva@email.com', 'E-mail pessoal', 1),
+
+('TELEFONE', '(21) 99876-5432', 'WhatsApp', 2),
+('EMAIL', 'carlos.pereira@email.com', 'E-mail corporativo', 2),
+
+('TELEFONE', '(31) 98765-4321', 'Recado', 3),
+('EMAIL', 'mariana.santos@email.com', NULL, 3),
+
+('TELEFONE', '(41) 91234-8765', NULL, 4),
+('EMAIL', 'lucas.costa@email.com', 'E-mail principal', 4),
+
+('TELEFONE', '(71) 92345-6789', 'WhatsApp', 5),
+('EMAIL', 'fernanda.lima@email.com', NULL, 5),
+
+('TELEFONE', '(81) 93456-7890', 'Contato de emergência', 6),
+('EMAIL', 'rafael.souza@email.com', 'Pessoal', 6),
+
+('TELEFONE', '(51) 94567-8901', NULL, 7),
+('EMAIL', 'patricia.almeida@email.com', 'E-mail principal', 7),
+
+('TELEFONE', '(11) 95678-9012', 'WhatsApp', 8),
+('EMAIL', 'thiago.nunes@email.com', NULL, 8),
+
+('TELEFONE', '(48) 96789-0123', NULL, 9),
+('EMAIL', 'juliana.menezes@email.com', 'E-mail alternativo', 9),
+
+('TELEFONE', '(85) 97890-1234', 'Recado com vizinho', 10),
+('EMAIL', 'bruno.araujo@email.com', 'Pessoal', 10);

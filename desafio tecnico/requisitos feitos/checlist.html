@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checklist - Requisitos do Sistema</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .checklist {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 800px;
+      margin: auto;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .section-title {
+      font-size: 1.2em;
+      margin: 20px 0 10px;
+      color: #222;
+    }
+
+    .item {
+      margin-bottom: 12px;
+    }
+
+    label {
+      cursor: pointer;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 10px;
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+
+    .completed {
+      text-decoration: line-through;
+      color: green;
+    }
+
+    button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 25px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Checklist - Requisitos do Sistema</h1>
+
+  <div class="checklist" id="checklist">
+    <div class="section-title">Requisitos Funcionais (RF)</div>
+    <div class="item completed"><input type="checkbox" checked> RF01: Cadastro de clientes (Nome, CPF, Data de Nascimento e Endereço)</div>
+    <div class="item completed"><input type="checkbox" checked> RF02: Edição de dados do cliente</div>
+    <div class="item completed"><input type="checkbox" checked> RF03: Exclusão de cliente cadastrado</div>
+    <div class="item completed"><input type="checkbox" checked> RF04: Listagem de todos os clientes</div>
+    <div class="item completed"><input type="checkbox" checked> RF05: Buscar cliente por Nome ou CPF</div>
+    <div class="item completed"><input type="checkbox" checked> RF06: Cadastro de contatos (Tipo, Valor, Observação)</div>
+    <div class="item completed"><input type="checkbox" checked> RF07: Edição de contatos de um cliente</div>
+    <div class="item completed"><input type="checkbox" checked> RF08: Exclusão de um contato de cliente</div>
+    <div class="item completed"><input type="checkbox" checked> RF09: Listagem de todos os contatos de um cliente específico</div>
+
+    <div class="section-title">Regras de Negócio (RN)</div>
+    <div class="item completed"><input type="checkbox" checked> RN01: Nome e CPF obrigatórios no cadastro do cliente</div>
+    <div class="item completed"><input type="checkbox" checked> RN02: Tipo e Valor do Contato obrigatórios</div>
+    <div class="item completed"><input type="checkbox" checked> RN03: CPF deve ser único</div>
+    <div class="item completed"><input type="checkbox" checked> RN04: Nome do cliente não pode estar vazio</div>
+    <div class="item completed"><input type="checkbox" checked> RN05: Data de nascimento válida</div>
+    <div class="item completed"><input type="checkbox" checked> RN06: Um cliente pode ter mais de um contato</div>
+    <div class="item completed"><input type="checkbox" checked> RN07: Ao excluir cliente, todos os contatos dele devem ser removidos</div>
+    <div class="item completed"><input type="checkbox" checked> RN08: Validação de dados antes de cadastrar ou editar</div>
+  </div>
+
+  <button onclick="verificarChecklist()">Verificar Conclusão</button>
+
+  <script>
+    function verificarChecklist() {
+      const checkboxes = document.querySelectorAll('#checklist input[type="checkbox"]');
+      let total = checkboxes.length;
+      let concluidos = 0;
+
+      checkboxes.forEach(cb => {
+        if (cb.checked) {
+          concluidos++;
+          cb.parentElement.classList.add('completed');
+        } else {
+          cb.parentElement.classList.remove('completed');
+        }
+      });
+
+      if (concluidos === total) {
+        alert('✅ Parabéns! Todos os requisitos foram concluídos.');
+      } else {
+        alert(`⚠️ Você completou ${concluidos} de ${total} itens.`);
+      }
+    }
+
+    // Marca todos como concluído ao carregar a página
+    window.onload = () => verificarChecklist();
+  </script>
+
+</body>
+</html>
